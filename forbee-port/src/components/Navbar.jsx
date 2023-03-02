@@ -57,7 +57,7 @@ const Navbar = () => {
         </div>
 
         <div className="fixed left-0 top-0 w-full h-full bg-black/70">
-          <div className="fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500 shadow-md shadow-gray-400">
+          <div className="fixed left-0 top-0 w-3/4 sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500 shadow-md shadow-gray-400">
             <div className=" flex w-full h-10 items-center justify-between">
               <Image
                 src="/assets/next.svg"
@@ -97,7 +97,7 @@ const Navbar = () => {
               </ul>
               <div className="pt-40">
                 <p className="uppercase tracking-widest ">Let's talk</p>
-                <div className="flex flex-row items-center justify-start my-2 w-full sm:w-[80%]">
+                <div className="flex flex-wrap items-center justify-start my-2 w-full sm:w-[80%]">
                   <div className=" cursor-pointer">
                     <AiOutlineLinkedin size={50} />
                   </div>
