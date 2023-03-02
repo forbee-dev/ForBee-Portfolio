@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { MdMenu, MdClose } from "react-icons/md";
@@ -10,6 +10,12 @@ import {
 } from "react-icons/ai";
 
 const Navbar = () => {
+  const [nav, setNav] = useState(false);
+
+  const handleNav = () => {
+    setNav(!nav);
+  };
+
   return (
     <>
       <div className="fixed w-full h-20 shadow-xl z-[100]">
@@ -50,14 +56,27 @@ const Navbar = () => {
                 </li>
               </Link>
             </ul>
-            <div className="md:hidden">
+            <div
+              onClick={handleNav}
+              className="md:hidden"
+            >
               <MdMenu size={30} />
             </div>
           </div>
         </div>
 
-        <div className="fixed left-0 top-0 w-full h-full bg-black/70">
-          <div className="fixed left-0 top-0 w-3/4 sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500 shadow-md shadow-gray-400">
+        <div
+          className={
+            nav ? " md:hidden fixed left-0 top-0 w-full h-full bg-black/70" : ""
+          }
+        >
+          <div
+            className={
+              nav
+                ? "fixed left-0 top-0 w-3/4 sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500 shadow-md shadow-gray-400"
+                : "fixed left-[-100%] top-0 p-10 ease-in duration-500 shadow-md shadow-gray-400"
+            }
+          >
             <div className=" flex w-full h-10 items-center justify-between">
               <Image
                 src="/assets/next.svg"
@@ -65,7 +84,10 @@ const Navbar = () => {
                 width={150}
                 height={150}
               />
-              <div className="rounded-full shadow-md shadow-gray-400 ml-3 p-1 cursor-pointer">
+              <div
+                onClick={handleNav}
+                className="rounded-full shadow-md shadow-gray-400 ml-3 p-1 cursor-pointer"
+              >
                 <MdClose size={30} />
               </div>
             </div>
