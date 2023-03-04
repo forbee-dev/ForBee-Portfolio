@@ -3,10 +3,15 @@ import Image from "next/legacy/image";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Theme from "@/components/Theme";
+import Script from "next/script";
 
 export default function Home() {
   return (
     <>
+      <Script
+        src="/assets/index.js"
+        strategy="beforeInteractive"
+      ></Script>
       <div>
         <Head>
           <title>ForBee Portfolio</title>
@@ -20,10 +25,11 @@ export default function Home() {
             href="/assets/favicon.ico"
           />
         </Head>
-        <Navbar></Navbar>
+
+        <Navbar />
       </div>
       <div className="pt-20">
-        <Theme></Theme>
+        <Theme />
       </div>
     </>
   );
