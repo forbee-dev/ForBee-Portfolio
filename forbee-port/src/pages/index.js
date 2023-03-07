@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Image from "next/legacy/image";
-import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Theme from "@/components/Theme";
 import Script from "next/script";
@@ -28,9 +26,7 @@ export default function Home() {
 
         <Navbar />
       </div>
-      <div className="pt-20">
-        <Theme />
-      </div>
+      <div className="pt-20"></div>
     </>
   );
 }

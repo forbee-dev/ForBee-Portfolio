@@ -8,6 +8,7 @@ import {
   AiOutlineMail,
   AiFillGithub,
 } from "react-icons/ai";
+import Theme from "./Theme";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -55,7 +56,11 @@ const Navbar = () => {
                   Contact
                 </li>
               </Link>
+              <li className="fixed">
+                <Theme />
+              </li>
             </ul>
+
             <div
               onClick={handleNav}
               className="md:hidden"
@@ -67,13 +72,15 @@ const Navbar = () => {
 
         <div
           className={
-            nav ? " md:hidden fixed left-0 top-0 w-full h-full bg-black/70" : ""
+            nav
+              ? " md:hidden fixed left-0 top-0 w-full h-full bg-base-200 bg-opacity-70 "
+              : ""
           }
         >
           <div
             className={
               nav
-                ? "fixed left-0 top-0 w-3/4 sm:w-[60%] md:w-[45%] h-screen bg-white p-10 ease-in duration-500 shadow-md shadow-gray-400"
+                ? "fixed left-0 top-0 w-3/4 sm:w-[60%] md:w-[45%] h-screen bg-base-200 p-10 ease-in duration-500 shadow-md shadow-gray-400"
                 : "fixed left-[-100%] top-0 p-10 ease-in duration-500 shadow-md shadow-gray-400"
             }
           >
