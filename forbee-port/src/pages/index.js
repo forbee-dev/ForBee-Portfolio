@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
-import Theme from "@/components/Theme";
 import Script from "next/script";
+import Main from "@/components/Main";
 
 export default function Home() {
   return (
@@ -26,7 +26,8 @@ export default function Home() {
 
         <Navbar />
       </div>
-      <div className="pt-20"></div>
+
+      <Main />
     </>
   );
 }

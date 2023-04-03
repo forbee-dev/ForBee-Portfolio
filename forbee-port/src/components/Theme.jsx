@@ -57,10 +57,10 @@ const Theme = () => {
   };*/
 
   return (
-    <div className="flex float-right m-5">
+    <div className="flex float-right m-5 ">
       <label
         htmlFor="my-modal-4"
-        className="btn"
+        className="btn "
       >
         FUN
       </label>
@@ -75,10 +75,10 @@ const Theme = () => {
         htmlFor="my-modal-4"
         className="modal cursor-pointer"
       >
-        <div className="modal-box relative">
-          <div className="modal-content">
+        <div className="modal-box">
+          <div className="modal-content ">
             <h2 className="text-xl text-center mb-5">Select Theme</h2>
-            <div className="theme-buttons">
+            <div className="theme-buttons grid grid-cols-5 ">
               {themeOptions.map((theme) => (
                 <button
                   key={theme}

@@ -19,9 +19,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed w-full h-20 shadow-xl z-[100]">
-        <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
-          <div className="relative w-1/5 h-20 ml-10">
+      <div className="navbar fixed w-full h-20 shadow-xl z-[100] bg-base-100">
+        <div className=" max-w-screen-xl mx-auto flex justify-between items-center w-full h-full px-2 ">
+          <div className="relative w-1/5 h-20 ml-10 ">
             <Image
               src="/assets/next.svg"
               alt="Forbee"
@@ -31,32 +31,34 @@ const Navbar = () => {
             />
           </div>
           <div>
-            <ul className="hidden md:flex">
+            <ul className="hidden items-center md:flex ">
               <Link href="/">
-                <li className="ml-10 text-sm uppercase hover:border-b">Home</li>
+                <li className="ml-10 text-sm text-center uppercase hover:border-b">
+                  Home
+                </li>
               </Link>
-              <Link href="/">
-                <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link href="/about">
+                <li className="ml-10 text-sm text-center uppercase hover:border-b">
                   About Me
                 </li>
               </Link>
-              <Link href="/">
-                <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link href="/web-dev">
+                <li className="ml-10 text-sm text-center uppercase hover:border-b">
                   Web Dev
                 </li>
               </Link>
-              <Link href="/">
-                <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link href="/graphic-design">
+                <li className="ml-10 text-sm text-center uppercase hover:border-b">
                   Graphic Design
                 </li>
               </Link>
 
-              <Link href="/">
-                <li className="ml-10 mr-10 text-sm uppercase hover:border-b">
+              <Link href="/contact">
+                <li className="ml-10 mr-10 text-sm text-center uppercase hover:border">
                   Contact
                 </li>
               </Link>
-              <li className="fixed">
+              <li className="  ">
                 <Theme />
               </li>
             </ul>
@@ -81,7 +83,7 @@ const Navbar = () => {
             className={
               nav
                 ? "fixed left-0 top-0 w-3/4 sm:w-[60%] md:w-[45%] h-screen bg-base-200 p-10 ease-in duration-500 shadow-md shadow-gray-400"
-                : "fixed left-[-100%] top-0 p-10 ease-in duration-500 shadow-md shadow-gray-400"
+                : "fixed left-[-500%] top-0 p-10 ease-in duration-500 shadow-md shadow-gray-400"
             }
           >
             <div className=" flex w-full h-10 items-center justify-between">
@@ -99,28 +101,26 @@ const Navbar = () => {
               </div>
             </div>
             <div>
-              <p className="text-black my-10 border-b border-gray-300">
-                bla bla bla
-              </p>
+              <p className=" my-10 border-b border-gray-300">bla bla bla</p>
             </div>
             <div className="py-4 flex flex-col">
               <ul className="uppercase">
                 <Link href="/">
                   <li className="py-4 text-sm hover:border-b">Home</li>
                 </Link>
-                <Link href="/">
+                <Link href="/about">
                   <li className="py-4 text-sm hover:border-b">About Me</li>
                 </Link>
-                <Link href="/">
+                <Link href="/web-dev">
                   <li className="py-4 text-sm hover:border-b">Web Dev</li>
                 </Link>
-                <Link href="/">
+                <Link href="/graphic-design">
                   <li className="py-4 text-sm hover:border-b">
                     Graphic Design
                   </li>
                 </Link>
 
-                <Link href="/">
+                <Link href="/contact">
                   <li className="py-4 text-sm hover:border-b">Contact</li>
                 </Link>
               </ul>
