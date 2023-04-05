@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { MdMenu, MdClose } from "react-icons/md";
@@ -17,9 +17,23 @@ const Navbar = () => {
     setNav(!nav);
   };
 
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+  }, []);
+
+  const handleClickOutside = (event) => {
+    if (refOne.current && !refOne.current.contains(event.target)) {
+      setNav(false);
+    }
+  };
+
+  const refOne = useRef(null);
+
   return (
     <>
-      <div className="navbar fixed w-full h-20 shadow-xl z-[100] bg-base-100">
+      <div className="navbar fixed w-full h-20 shadow-xl bg-base-100 z-50 ">
+        {/* Responsive Menu */}
+
         <div className=" max-w-screen-xl mx-auto flex justify-between items-center w-full h-full px-2 ">
           <div className="relative w-1/5 h-20 ml-10 ">
             <Image
@@ -64,7 +78,7 @@ const Navbar = () => {
             </ul>
 
             <div
-              onClick={handleNav}
+              onClick={handleNav} // Open Menu
               className="md:hidden"
             >
               <MdMenu size={30} />
@@ -72,6 +86,7 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Mobile Menu  */}
         <div
           className={
             nav
@@ -80,6 +95,7 @@ const Navbar = () => {
           }
         >
           <div
+            ref={refOne}
             className={
               nav
                 ? "fixed left-0 top-0 w-3/4 sm:w-[60%] md:w-[45%] h-screen bg-base-200 p-10 ease-in duration-500 shadow-md shadow-gray-400"
@@ -94,7 +110,7 @@ const Navbar = () => {
                 height={150}
               />
               <div
-                onClick={handleNav}
+                onClick={handleNav} // Close Menu
                 className="rounded-full shadow-md shadow-gray-400 ml-3 p-1 cursor-pointer"
               >
                 <MdClose size={30} />
@@ -105,22 +121,37 @@ const Navbar = () => {
             </div>
             <div className="py-4 flex flex-col">
               <ul className="uppercase">
-                <Link href="/">
+                <Link
+                  href="/"
+                  onClick={handleNav}
+                >
                   <li className="py-4 text-sm hover:border-b">Home</li>
                 </Link>
-                <Link href="/about">
+                <Link
+                  href="/about"
+                  onClick={handleNav}
+                >
                   <li className="py-4 text-sm hover:border-b">About Me</li>
                 </Link>
-                <Link href="/web-dev">
+                <Link
+                  href="/web-dev"
+                  onClick={handleNav}
+                >
                   <li className="py-4 text-sm hover:border-b">Web Dev</li>
                 </Link>
-                <Link href="/graphic-design">
+                <Link
+                  href="/graphic-design"
+                  onClick={handleNav}
+                >
                   <li className="py-4 text-sm hover:border-b">
                     Graphic Design
                   </li>
                 </Link>
 
-                <Link href="/contact">
+                <Link
+                  href="/contact"
+                  onClick={handleNav}
+                >
                   <li className="py-4 text-sm hover:border-b">Contact</li>
                 </Link>
               </ul>
@@ -128,16 +159,36 @@ const Navbar = () => {
                 <p className="uppercase tracking-widest ">Let's talk</p>
                 <div className="flex flex-wrap items-center justify-start my-2 w-full sm:w-[80%]">
                   <div className=" cursor-pointer">
-                    <AiOutlineLinkedin size={50} />
+                    <Link
+                      href="https://www.linkedin.com/in/forbee/"
+                      target="_blank"
+                    >
+                      <AiOutlineLinkedin size={50} />
+                    </Link>
                   </div>
                   <div className=" cursor-pointer">
-                    <AiFillTwitterSquare size={50} />
+                    <Link
+                      href="https://twitter.com/forbee"
+                      target="_blank"
+                    >
+                      <AiFillTwitterSquare size={50} />
+                    </Link>
                   </div>
                   <div className="  cursor-pointer">
-                    <AiFillGithub size={50} />
+                    <Link
+                      href="https://github.com/forbee-dev"
+                      target="_blank"
+                    >
+                      <AiFillGithub size={50} />
+                    </Link>
                   </div>
                   <div className="cursor-pointer">
-                    <AiOutlineMail size={50} />
+                    <Link
+                      href="mailto:code@forbee.dev"
+                      target="_blank"
+                    >
+                      <AiOutlineMail size={50} />
+                    </Link>
                   </div>
                 </div>
               </div>
