@@ -1,7 +1,7 @@
 import Cards from "@/components/Cards";
 
 export default function webdev({ posts }) {
-  console.log({ posts });
+  //console.log({ posts });
 
   return (
     <>
@@ -11,32 +11,6 @@ export default function webdev({ posts }) {
             <p className="uppercase text-sm tracking-widest">
               Welcome to Web Dev Portfolio page
             </p>
-            {/* <div>
-              {posts.map((post, index) => (
-                <div key={index}>
-                  <h1>{post.title}</h1>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: post.shortDescription,
-                    }}
-                  />
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: post.description,
-                    }}
-                  />
-                  <div>
-                    {post.image && (
-                      <img
-                        src={post.image.sourceUrl}
-                        alt={post.title}
-                      />
-                    )}
-                  </div>
-                  
-                </div>
-              ))}
-            </div> */}
             <div>
               <Cards posts={posts} />
             </div>

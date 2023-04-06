@@ -27,9 +27,7 @@ button {
   @apply rounded-xl uppercase;
 }
 
-/*
-
-### text glow effect ###
+/* ### text glow effect ###  */
 
 .glow {
   animation: animate 3s linear infinite;
@@ -44,5 +42,3 @@ button {
     filter: hue-rotate(360deg);
   }
 }
-
-*/

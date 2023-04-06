@@ -82,7 +82,7 @@ const Theme = () => {
               {themeOptions.map((theme) => (
                 <button
                   key={theme}
-                  className="btn btn-xs m-1 shadow-md shadow-current"
+                  className="btn btn-xs m-1 btn-active btn-accent"
                   onClick={() => handleThemeButtonClick(theme)}
                   data-toggle-theme={theme}
                   data-act-class="ACTIVECLASS"

@@ -1,7 +1,7 @@
 import Cards from "@/components/Cards";
 
 export default function design({ posts }) {
-  console.log({ posts });
+  //console.log({ posts });
 
   return (
     <>
@@ -11,37 +11,12 @@ export default function design({ posts }) {
             <p className="uppercase text-sm tracking-widest">
               Welcome to Graphic Design Portfolio page
             </p>
-            {/*             <div>
-              {posts.map((post, index) => (
-                <div key={index}>
-                  <h1>{post.title}</h1>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: post.shortDescription,
-                    }}
-                  />
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: post.description,
-                    }}
-                  />
-                  <div>
-                                         {post.image && (
-                      <img
-                        src={post.image.sourceUrl}
-                        alt={post.title}
-                      />
-                    )} 
-                    
-                  </div>
-                </div>
-              ))}
-            </div> */}
-
-            <Cards
-              className="flex flex-row flex-wrap "
-              posts={posts}
-            />
+            <div>
+              <Cards
+                className="flex flex-row flex-wrap "
+                posts={posts}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -58,7 +33,7 @@ export async function getStaticProps() {
       body: JSON.stringify({
         query: `
         query NewQuery {
-          products(where: {category: "Design"}) {
+          products (where: {category: "Design"})  {
             nodes {
               galleryImages {
                 nodes {
@@ -72,6 +47,11 @@ export async function getStaticProps() {
               title
               shortDescription
               description
+              attributes {
+                nodes {
+                  name
+                }
+              }
             }
           }
         }
