@@ -19,7 +19,7 @@ h2 {
   @apply text-3xl sm:text-4xl;
 }
 
-li {
+a {
   @apply cursor-pointer;
 }
 
@@ -27,9 +27,13 @@ button {
   @apply rounded-xl uppercase;
 }
 
+* {
+  @apply text-neutral-400;
+}
+
 /* ### text glow effect ###  */
 
-.glow {
+/* .glow {
   animation: animate 3s linear infinite;
   text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff,
     0 0 200px #0072ff;
@@ -41,4 +45,4 @@ button {
   to {
     filter: hue-rotate(360deg);
   }
-}
+} */

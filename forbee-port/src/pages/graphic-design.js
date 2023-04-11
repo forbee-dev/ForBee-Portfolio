@@ -5,17 +5,18 @@ const Cards = dynamic(() => import("@/components/Cards"), {
 });
 
 export default function design({ posts }) {
-  console.log(posts.atribites);
-
+  /*   console.log(posts.atribites);
+   */
   return (
     <>
-      <div className="w-full min-h-screen h-auto text-center bg-white">
-        <div className="max-w-screen-xl w-full min-h-screen h-auto mx-auto p-2 flex justify-center pt-32 bg-black ">
-          <div>
-            <h1 className="uppercase text-xl tracking-widest mb-5">
-              Welcome to Graphic Design Portfolio page
-            </h1>
-
+      <div className="w-full min-h-screen h-auto text-center">
+        <div className="max-w-screen-xl w-full min-h-screen h-auto mx-auto p-2 flex justify-center pt-28 ">
+          <div className="mockup-code w-full h-full">
+            <pre data-prefix="$">
+              <code className="uppercase text-xl mb-5">
+                Welcome to Graphic Design Portfolio page
+              </code>
+            </pre>
             <div>
               <Cards
                 className="flex flex-row flex-wrap "
