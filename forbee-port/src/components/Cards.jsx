@@ -46,7 +46,7 @@ export default function Cards({ posts }) {
                     <ul className="flex flex-wrap">
                       {attribute.options.map((option) => (
                         <li
-                          className="mr-5"
+                          className="mx-2"
                           key={option}
                         >
                           {option}
