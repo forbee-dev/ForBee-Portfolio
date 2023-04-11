@@ -1,16 +1,21 @@
-import Cards from "@/components/Cards";
+import dynamic from "next/dynamic";
+const Cards = dynamic(() => import("@/components/Cards"), {
+  loading: () => <p>Loading...</p>,
+  ssr: false,
+});
 
 export default function design({ posts }) {
-  //console.log({ posts });
+  console.log(posts.atribites);
 
   return (
     <>
       <div className="w-full min-h-screen h-auto text-center bg-white">
         <div className="max-w-screen-xl w-full min-h-screen h-auto mx-auto p-2 flex justify-center pt-32 bg-black ">
-          <div className="">
-            <p className="uppercase text-sm tracking-widest">
+          <div>
+            <h1 className="uppercase text-xl tracking-widest mb-5">
               Welcome to Graphic Design Portfolio page
-            </p>
+            </h1>
+
             <div>
               <Cards
                 className="flex flex-row flex-wrap "
@@ -49,7 +54,7 @@ export async function getStaticProps() {
               description
               attributes {
                 nodes {
-                  name
+                  options
                 }
               }
             }

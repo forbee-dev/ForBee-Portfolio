@@ -40,8 +40,23 @@ const Theme = () => {
 
   const [selectedTheme, setSelectedTheme] = useState("");
 
-  const handleThemeButtonClick = () => {
-    setSelectedTheme(selectedTheme);
+  useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    if (theme) {
+      setSelectedTheme(theme);
+      themeChange(theme);
+    } else {
+      themeChange("dark");
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("theme", selectedTheme);
+    themeChange(selectedTheme);
+  }, [selectedTheme]);
+
+  const handleThemeButtonClick = (theme) => {
+    setSelectedTheme(theme);
   };
 
   const handleResetClick = () => {
@@ -57,7 +72,7 @@ const Theme = () => {
   };*/
 
   return (
-    <div className="flex float-right m-5 ">
+    <div className="flex m-5 ">
       <label
         htmlFor="my-modal-4"
         className="btn "

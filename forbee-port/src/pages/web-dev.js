@@ -1,4 +1,9 @@
-import Cards from "@/components/Cards";
+import dynamic from "next/dynamic";
+
+const Cards = dynamic(() => import("@/components/Cards"), {
+  loading: () => <p>Loading...</p>,
+  ssr: false,
+});
 
 export default function webdev({ posts }) {
   //console.log({ posts });

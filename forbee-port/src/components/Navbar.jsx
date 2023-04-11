@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { MdMenu, MdClose } from "react-icons/md";
@@ -9,6 +10,9 @@ import {
   AiFillGithub,
 } from "react-icons/ai";
 import Theme from "./Theme";
+
+/* const Theme = dynamic(() => import("./Theme"), { ssr: true });
+ */
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -73,7 +77,7 @@ const Navbar = () => {
                 </li>
               </Link>
               <li className="  ">
-                <Theme />
+                <Theme /> {/* Theme Switcher */}
               </li>
             </ul>
 
