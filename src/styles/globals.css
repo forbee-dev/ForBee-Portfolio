@@ -38,7 +38,7 @@ button {
 }
 
 .imgefects:hover {
-  max-width: 100%;
+  width: 100%;
   transform-origin: center;
   transform: scale(0.55);
   transition: transform 0.4s ease-in-out;

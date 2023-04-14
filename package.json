@@ -13,6 +13,7 @@
     "daisyui": "^2.51.2",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.1",
+    "framer-motion": "^10.12.2",
     "js-cookie": "^3.0.1",
     "next": "13.2.1",
     "react": "18.2.0",

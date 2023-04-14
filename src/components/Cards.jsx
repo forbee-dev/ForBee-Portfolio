@@ -41,8 +41,6 @@ export default function Cards({ posts }) {
         />
       </div>
       <div className="flex flex-wrap justify-center ">
-        {/* Render the filter options component */}
-
         {/* Render the filtered posts */}
         {filteredPosts.map((post, index) => (
           <div key={index}>
