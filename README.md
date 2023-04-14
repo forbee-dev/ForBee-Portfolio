@@ -6,7 +6,7 @@ This is my Personal Portfolio for Web Development and Graphic Design
 
 ## Tech Stack
 
-**Client:** NextJS, ReactJS, TailwindCSS with DaisyUI
+**Client:** NextJS, TailwindCSS with DaisyUI
 
 **Server:** Headless CMS Wordpress
 
