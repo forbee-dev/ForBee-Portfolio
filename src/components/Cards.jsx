@@ -51,8 +51,8 @@ export default function Cards({ posts }) {
                 key={index}
                 className="mt-20"
               >
-                <div className="card w-96 bg-base-100 outline outline-offset-0 outline-accent m-4">
-                  <div className="card-body h-[32rem] items-center text-center">
+                <div className="card w-96 bg-base-100 outline outline-offset-0 outline-accent m-4 cardefects">
+                  <div className="card-body h-[32rem] items-center text-center ">
                     <div className="w-11/12 -translate-y-24">
                       {post.image && (
                         <img

@@ -31,6 +31,20 @@ button {
   @apply text-neutral-400;
 }
 
+.cardefects:has(:hover, :focus) {
+  transform-origin: center;
+  transform: scale(1.05);
+  transition: transform 0.4s ease-in-out;
+}
+
+.imgefects:hover {
+  max-width: 100%;
+  transform-origin: center;
+  transform: scale(0.55);
+  transition: transform 0.4s ease-in-out;
+  overflow: hidden;
+}
+
 /* ### text glow effect ###  */
 
 /* .glow {

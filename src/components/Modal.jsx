@@ -31,7 +31,7 @@ export default function Modal({
             <div>
               {selectedPost.image && (
                 <img
-                  className="object-cover h-96 w-full rounded-xl outline outline-offset-0 outline-accent"
+                  className="object-cover h-96 w-full rounded-xl outline outline-offset-0 outline-accent imgefects"
                   src={selectedPost.image.sourceUrl}
                   alt={selectedPost.title}
                 />
