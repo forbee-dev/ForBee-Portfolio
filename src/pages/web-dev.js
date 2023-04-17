@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
 
 const Cards = dynamic(() => import("@/components/Cards"), {
   loading: () => <p>Loading...</p>,
@@ -10,18 +11,32 @@ export default function webdev({ posts }) {
 
   return (
     <>
-      <div className="w-full min-h-screen h-auto text-center bg-white">
-        <div className="max-w-screen-xl w-full min-h-screen h-auto mx-auto p-2 flex justify-center pt-32 bg-black ">
-          <div className="">
-            <p className="uppercase text-sm tracking-widest">
-              Welcome to Web Dev Portfolio page
-            </p>
+      <motion.div
+        className="w-full min-h-screen h-auto text-center"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.1,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+      >
+        <div className="max-w-screen-xl w-full min-h-screen h-auto mx-auto p-2 flex justify-center pt-28 ">
+          <div className="mockup-code w-full h-full">
+            <pre data-prefix="$">
+              <code className="uppercase text-xl mb-5">
+                Welcome to Web Development Portfolio page
+              </code>
+            </pre>
             <div>
-              <Cards posts={posts} />
+              <Cards
+                className="flex flex-row flex-wrap"
+                posts={posts}
+              />
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

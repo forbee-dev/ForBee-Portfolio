@@ -31,6 +31,18 @@ const Navbar = () => {
     }
   };
 
+  useEffect(() => {
+    function handleKeyDown(event) {
+      if (event.key === "/") {
+        window.location.href = "/";
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   const refOne = useRef(null);
 
   return (
@@ -52,7 +64,7 @@ const Navbar = () => {
             <ul className="hidden items-center md:flex ">
               <Link href="/">
                 <li className="ml-10 text-sm text-center uppercase hover:border-b">
-                  Home
+                  <kbd className="kbd kbd-sm">/</kbd> Root
                 </li>
               </Link>
               <Link href="/about">
@@ -72,7 +84,7 @@ const Navbar = () => {
               </Link>
 
               <Link href="/contact">
-                <li className="ml-10 mr-10 text-sm text-center uppercase hover:border">
+                <li className="ml-10 mr-10 text-sm text-center uppercase hover:border-b">
                   Contact
                 </li>
               </Link>
@@ -129,7 +141,9 @@ const Navbar = () => {
                   href="/"
                   onClick={handleNav}
                 >
-                  <li className="py-4 text-sm hover:border-b">Home</li>
+                  <li className="py-4 text-sm hover:border-b">
+                    <kbd className="kbd kbd-sm">/</kbd> Root
+                  </li>
                 </Link>
                 <Link
                   href="/about"

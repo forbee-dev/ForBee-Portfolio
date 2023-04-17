@@ -23,12 +23,10 @@ export default function design({ posts }) {
         }}
       >
         <div className="max-w-screen-xl w-full min-h-screen h-auto mx-auto p-2 flex justify-center pt-28 ">
-          <div className="mockup-code w-full h-full">
-            <pre data-prefix="$">
-              <code className="uppercase text-xl mb-5">
-                Welcome to Graphic Design Portfolio page
-              </code>
-            </pre>
+          <div className="glass rounded-3xl w-full h-full">
+            <h2 className="uppercase text-xl my-5">
+              Welcome to Graphic Design Portfolio page
+            </h2>
             <div>
               <Cards
                 className="flex flex-row flex-wrap"
