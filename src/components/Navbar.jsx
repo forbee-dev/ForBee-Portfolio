@@ -64,7 +64,7 @@ const Navbar = () => {
             <ul className="hidden items-center md:flex ">
               <Link href="/">
                 <li className="ml-10 text-sm text-center uppercase hover:border-b">
-                  <kbd className="kbd kbd-sm">/</kbd> Root
+                  <kbd className="kbd kbd-sm">/</kbd> Home
                 </li>
               </Link>
               <Link href="/about">
@@ -142,7 +142,7 @@ const Navbar = () => {
                   onClick={handleNav}
                 >
                   <li className="py-4 text-sm hover:border-b">
-                    <kbd className="kbd kbd-sm">/</kbd> Root
+                    <kbd className="kbd kbd-sm">/</kbd> Home
                   </li>
                 </Link>
                 <Link
