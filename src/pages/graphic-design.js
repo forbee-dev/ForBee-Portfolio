@@ -53,7 +53,7 @@ export async function getStaticProps() {
             nodes {
               galleryImages {
                 nodes {
-                  sourceUrl
+                  mediaItemUrl
                 }
               }
               image {

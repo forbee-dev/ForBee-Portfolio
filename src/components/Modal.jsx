@@ -47,6 +47,21 @@ export default function Modal({
                 }}
               />
             </div>
+            <div>
+              {selectedPost.galleryImages &&
+              selectedPost.galleryImages.nodes.length > 0 ? (
+                <div className="grid grid-cols-3 gap-4">
+                  {selectedPost.galleryImages.nodes.map((image) => (
+                    <img
+                      key={image.mediaItemUrl}
+                      className="w-full rounded-xl outline outline-offset-0 outline-accent"
+                      src={image.mediaItemUrl}
+                      alt={selectedPost.title}
+                    />
+                  ))}
+                </div>
+              ) : null}
+            </div>
             <ul>
               {selectedPost.attributes?.nodes.map((attribute) => (
                 <li key={attribute.name}>
