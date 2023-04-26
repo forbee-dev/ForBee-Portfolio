@@ -61,6 +61,9 @@ export default function Cards({ posts }) {
                       )}
                     </div>
                     <h2 className="card-title -mt-20">{post.title}</h2>
+                    {/* dangerouslySetInnerHTML is used because the description is in HTML format and we want to render it as HTML instead of text
+              there is no script tag in the description so it is safe to use this method... in alternative we can use DOMPurify to sanitize the HTML
+               */}
                     <div>
                       {post?.shortDescription?.length > 220 ? ( // if the description is longer than 220 characters, truncate it
                         <p

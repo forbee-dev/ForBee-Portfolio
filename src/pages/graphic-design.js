@@ -51,7 +51,7 @@ export async function getStaticProps() {
         query NewQuery {
           products (where: {category: "Design"})  {
             nodes {
-              galleryImages {
+              galleryImages(first: 50) {
                 nodes {
                   mediaItemUrl
                 }

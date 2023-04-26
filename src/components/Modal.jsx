@@ -39,7 +39,9 @@ export default function Modal({
             </div>
             <div>
               <p className="card-title my-5">{selectedPost.title}</p>
-
+              {/* dangerouslySetInnerHTML is used because the description is in HTML format and we want to render it as HTML instead of text
+              there is no script tag in the description so it is safe to use this method... in alternative we can use DOMPurify to sanitize the HTML
+               */}
               <p
                 className="text-justify my-5"
                 dangerouslySetInnerHTML={{
@@ -50,7 +52,7 @@ export default function Modal({
             <div>
               {selectedPost.galleryImages &&
               selectedPost.galleryImages.nodes.length > 0 ? (
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-3 gap-4 items-center">
                   {selectedPost.galleryImages.nodes.map((image) => (
                     <img
                       key={image.mediaItemUrl}
