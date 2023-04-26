@@ -41,13 +41,13 @@ export default function design({ posts }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(
-    "https://www.vibrant-lovelace.207-180-218-158.plesk.page/graphql",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        query: `
+  const API = process.env.SERVER_API;
+
+  const res = await fetch(API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      query: `
         query NewQuery {
           products (where: {category: "Design"})  {
             nodes {
@@ -72,9 +72,8 @@ export async function getStaticProps() {
           }
         }
       `,
-      }),
-    }
-  );
+    }),
+  });
 
   const json = await res.json();
 

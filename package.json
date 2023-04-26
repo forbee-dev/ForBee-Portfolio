@@ -11,6 +11,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^2.1.1",
     "daisyui": "^2.51.2",
+    "dotenv": "^16.0.3",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.1",
     "framer-motion": "^10.12.2",
