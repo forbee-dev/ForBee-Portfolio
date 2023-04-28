@@ -10,6 +10,7 @@ import {
   AiFillGithub,
 } from "react-icons/ai";
 import Theme from "./Theme";
+import { motion } from "framer-motion";
 
 /* const Theme = dynamic(() => import("./Theme"), { ssr: true });
  */
@@ -47,7 +48,20 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar fixed w-full h-20 shadow-xl bg-base-100 z-50 ">
+      <motion.div
+        initial={{
+          y: -100,
+          opacity: 0,
+        }}
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{
+          duration: 1,
+        }}
+        className="navbar fixed top-0 w-full h-20 shadow-xl bg-base-100 z-50"
+      >
         {/* Responsive Menu */}
 
         <div className=" max-w-screen-xl mx-auto flex justify-between items-center w-full h-full px-2 ">
@@ -114,8 +128,8 @@ const Navbar = () => {
             ref={refOne}
             className={
               nav
-                ? "fixed left-0 top-0 w-3/4 sm:w-[60%] md:w-[45%] h-screen bg-base-200 p-10 ease-in duration-500 shadow-md shadow-gray-400"
-                : "fixed left-[-500%] top-0 p-10 ease-in duration-500 shadow-md shadow-gray-400"
+                ? "fixed left-0 top-0 w-3/4 sm:w-[60%] md:w-[45%] h-screen bg-base-200 p-10 ease-in duration-1000 shadow-md shadow-gray-400"
+                : "fixed left-[-100%] top-0 p-10 ease-in duration-1000 shadow-md shadow-gray-400"
             }
           >
             <div className=" flex w-full h-10 items-center justify-between">
@@ -213,7 +227,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

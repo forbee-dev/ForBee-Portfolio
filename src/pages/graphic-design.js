@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
+//import Cards from "@/components/Cards";
 
 const Cards = dynamic(() => import("@/components/Cards"), {
   loading: () => <p>Loading...</p>,
