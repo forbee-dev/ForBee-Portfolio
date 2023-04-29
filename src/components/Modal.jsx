@@ -20,7 +20,7 @@ export default function Modal({
         className="modal-toggle"
       />
       {selectedPost && (
-        <div className="modal ">
+        <div className="modal">
           <div className="modal-box w-11/12 h-auto max-w-5xl">
             <button
               onClick={handleCloseModal}

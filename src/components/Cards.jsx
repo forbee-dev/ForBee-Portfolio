@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Modal from "./Modal";
 import FilterOptions from "./Filter";
 
@@ -17,6 +17,18 @@ export default function Cards({ posts }) {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, true);
+  }, []);
+
+  const handleClickOutside = (event) => {
+    if (refOne.current && !refOne.current.contains(event.target)) {
+      setNav(false);
+    }
+  };
+
+  const refOne = useRef(null);
 
   const handleFilter = (option) => {
     setFilteredPosts(
@@ -115,6 +127,7 @@ export default function Cards({ posts }) {
                 </div>
                 <Modal
                   key={index}
+                  ref={refOne}
                   handleCloseModal={handleCloseModal}
                   isVisible={showModal && selectedPostIndex === index}
                   posts={filteredPosts}
