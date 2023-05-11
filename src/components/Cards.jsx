@@ -9,26 +9,10 @@ export default function Cards({ posts }) {
   const [selectedPostIndex, setSelectedPostIndex] = useState(null);
   const [filteredPosts, setFilteredPosts] = useState(posts);
 
-  const handleOpenModal = (index) => {
+  const handleModal = (index) => {
     setSelectedPostIndex(index);
-    setShowModal(true);
+    setShowModal(!showModal);
   };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
-  }, []);
-
-  const handleClickOutside = (event) => {
-    if (refOne.current && !refOne.current.contains(event.target)) {
-      setNav(false);
-    }
-  };
-
-  const refOne = useRef(null);
 
   const handleFilter = (option) => {
     setFilteredPosts(
@@ -72,7 +56,9 @@ export default function Cards({ posts }) {
                         />
                       )}
                     </div>
-                    <h2 className="card-title -mt-20">{post.title}</h2>
+                    <h2 className="card-title -mt-20 uppercase">
+                      {post.title}
+                    </h2>
                     {/* dangerouslySetInnerHTML is used because the description is in HTML format and we want to render it as HTML instead of text
               there is no script tag in the description so it is safe to use this method... in alternative we can use DOMPurify to sanitize the HTML
                */}
@@ -95,20 +81,22 @@ export default function Cards({ posts }) {
                     </div>
                     <p></p> {/* This is a hack to add some space */}
                     <ul key={index}>
-                      {post.attributes?.nodes.map((attributes) => (
-                        <li key={index}>
-                          <ul className="flex flex-wrap justify-center align-middle">
-                            {attributes.options.map((option) => (
-                              <li
-                                className="mx-2 p-1 outline outline-offset-1 outline-1 outline-accent rounded-xl"
-                                key={option}
-                              >
-                                {option}
-                              </li>
-                            ))}
-                          </ul>
-                        </li>
-                      ))}
+                      {post.attributes?.nodes.map((attributes) =>
+                        attributes.name === "Tech" ? (
+                          <li key={index}>
+                            <ul className="flex flex-wrap justify-center align-middle">
+                              {attributes.options.map((option) => (
+                                <li
+                                  className="m-2 p-1 outline outline-offset-1 outline-1 outline-accent rounded-xl uppercase"
+                                  key={option}
+                                >
+                                  {option}
+                                </li>
+                              ))}
+                            </ul>
+                          </li>
+                        ) : null
+                      )}
                     </ul>
                     <p></p> {/* This is a hack to add some space */}
                     <div className="card-actions">
@@ -117,7 +105,7 @@ export default function Cards({ posts }) {
                         <label
                           className="btn btn-accent"
                           htmlFor="my-modal-3"
-                          onClick={() => handleOpenModal(index)}
+                          onClick={() => handleModal(index)}
                         >
                           More Info
                         </label>
@@ -126,13 +114,10 @@ export default function Cards({ posts }) {
                   </div>
                 </div>
                 <Modal
-                  key={index}
-                  ref={refOne}
-                  handleCloseModal={handleCloseModal}
+                  handleModal={handleModal}
                   isVisible={showModal && selectedPostIndex === index}
                   posts={filteredPosts}
                   selectedPostIndex={selectedPostIndex}
-                  onFilter={handleFilter}
                 />
               </div>
             </div>

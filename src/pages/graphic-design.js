@@ -66,6 +66,7 @@ export async function getStaticProps() {
               description
               attributes {
                 nodes {
+                  name
                   options
                 }
               }
@@ -78,9 +79,28 @@ export async function getStaticProps() {
 
   const json = await res.json();
 
+  const sortedPosts = json.data.products.nodes.sort((a, b) => {
+    const orderA = getAttributeValue(a, "Order") || 0;
+    const orderB = getAttributeValue(b, "Order") || 0;
+    return orderA - orderB; // sort descending
+  });
+
   return {
     props: {
-      posts: json.data.products.nodes,
+      posts: sortedPosts,
     },
   };
+}
+
+function getAttributeValue(product, attributeName) {
+  const attribute = product.attributes.nodes.find(
+    (attr) => attr.name.toLowerCase() === attributeName.toLowerCase()
+  );
+  if (attribute && attribute.options.length > 0) {
+    const numberValue = parseInt(attribute.options[0]);
+    if (!isNaN(numberValue)) {
+      return numberValue;
+    }
+  }
+  return null;
 }
